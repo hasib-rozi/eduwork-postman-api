@@ -7,7 +7,8 @@ describe('Add a new user', () => {
             "job": "test engineer"
         }
         cy.request('POST', 'https://reqres.in/api/users', user).then((response) => {
-            expect(response.status).equal(201)
+            expect(response.body).to.have.property("name", "hasib pramana")
+            expect(response.body).to.have.property("job", "test engineer")
         })
     })
 })
